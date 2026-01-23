@@ -1,15 +1,26 @@
 @extends('layouts.main')
 
 @section('container')
-    <article class="mb-5">
-        <h2>{{ $post->title }}</h2>
-        <p>By. <a href="/authors/{{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a></p>
-        <p>Category : <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>
-        {{-- <p>{{ $post->body }}</p> --}}
-        {!! $post->body !!}
-    </article>
 
-    <a href="/blog" class="text-decoration-none">Back to Blog</a>
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <h2>{{ $post->title }}</h2>
+                <p>
+                    <small class="text-muted">
+                        By. <a href="/authors/{{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a> {{ $post->created_at->diffForHumans() }}
+                    </small>
+                </p>
+                {{-- <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" class="img-fluid mb-3" alt="{{ $post->category->name }}"> --}}
+                <img src="https://picsum.photos/seed/picsum/1200/400" class="img-fluid mb-3" alt="{{ $post->category->name }}">
+
+                {!! $post->body !!}
+
+                <a href="/blog" class="text-decoration-none">Back to Blog</a>
+            </div>
+        </div>
+    </div>
+    
 @endsection
 
 {{-- App\Models\Category::create([
