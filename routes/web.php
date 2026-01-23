@@ -17,7 +17,8 @@ Route::get('/about', function () {
         "title" => "About",
         "active" => "about",
         "name" => "Alfian Ramadhan",
-        "email" => "alfian@example.com"
+        "email" => "alfian@example.com",
+        "image" => "alfian.jpg"
     ]);
 });
 
@@ -30,23 +31,5 @@ Route::get('/categories', function () {
         'title' => 'Categories',
         'active' => 'categories',
         'categories' => Category::all(),
-    ]);
-});
-
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('blog', [
-        'title' => 'Posts in Category: ' . $category->name,
-        'active' => 'categories',
-        'posts' => $category->posts->load('category', 'author'),
-        // 'category' => $category->name,
-    ]);
-});
-
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('blog', [
-        'title' => 'Posts By Author: ' . $author->name,
-        'active' => 'posts',
-        'posts' => $author->posts->load('category', 'author'),
-        // 'user' => $author->name,
     ]);
 });
