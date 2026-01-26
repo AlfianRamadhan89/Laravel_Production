@@ -18,6 +18,17 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Trix Editor -->
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.css"> --}}
+    <link rel="stylesheet" type="text/css" href="/css/trix.css">
+
+    <!-- Trix Editor Customization -->
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -41,5 +52,9 @@
 
     <!-- Feather Icons -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" crossorigin="anonymous"></script>
+
+    <!-- Trix Editor -->
+    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script> --}}
+    <script type="text/javascript" src="/js/trix.js"></script>
 </body>
 </html>
