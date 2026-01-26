@@ -15,7 +15,14 @@
         <button class="btn btn-danger mb-3" onclick="return confirm('Are you sure?')"><i class="bi bi-trash"></i></button>
     </form>
 
-    <article class="my-3 fs-5">
+    <article class="my-3 fs-5 mb-5">
+        @if ($post->image)
+            <div style="max-height: 400px; overflow:hidden;" class="mb-4">
+                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
+            </div>
+        @else
+            <img src="https://picsum.photos/seed/picsum/1200/300" alt="{{ $post->category->name }}" class="img-fluid mb-5">
+        @endif
         {!! $post->body !!}
     </article>
 
